@@ -1,0 +1,11 @@
+task :default do
+  sh "crystal build --release zmove.cr"
+  sh "crystal build --release zadd.cr"
+  sh "strip zmove"
+  sh "strip zadd"
+end
+
+task :debug do
+  sh "crystal build --debug zmove.cr"
+  sh "crystal build --debug zadd.cr"
+end
