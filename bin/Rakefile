@@ -1,11 +1,15 @@
-task :default do
+file 'zmove' do
   sh "crystal build --release zmove.cr"
-  sh "crystal build --release zadd.cr"
   sh "strip zmove"
+end
+
+file 'zadd' do
+  sh "crystal build --release zadd.cr"
   sh "strip zadd"
 end
 
-task :debug do
-  sh "crystal build --debug zmove.cr"
-  sh "crystal build --debug zadd.cr"
+task :install do
+  sh "cp zmove zadd ~/bin"
 end
+
+task :default => ['zmove', 'zadd']
