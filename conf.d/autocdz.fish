@@ -31,8 +31,10 @@ function __z_move -d "Jump to a recent directory"
     return 1
   end
 
-  pushd "$target"
-  echo cd $target
+  if test -d $target
+    pushd "$target"
+    echo cd $target
+  end
 end
 
 function __z_on_variable_pwd --on-variable PWD
