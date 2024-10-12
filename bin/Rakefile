@@ -12,4 +12,10 @@ task :install do
   sh "cp zmove zadd ~/bin"
 end
 
+task :go do
+  sh 'go build -ldflags="-s -w" -trimpath zadd.go'
+  sh 'go build -ldflags="-s -w" -trimpath zmove.go'
+end
+
 task :default => ['zmove', 'zadd']
+
