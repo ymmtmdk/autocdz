@@ -1,5 +1,5 @@
 if test -z "$Z_DATA"
-  set -U Z_DATA "$HOME/.z"
+  set Z_DATA "$HOME/.z"
 end
 
 if test ! -f "$Z_DATA"
